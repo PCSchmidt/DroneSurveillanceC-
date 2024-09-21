@@ -1,24 +1,38 @@
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include "Drone.h"
-#include "CityMap.h"
+// Include necessary header files
+#include <iostream>     // For input/output operations
+#include <chrono>       // For time-related functions
+#include <thread>       // For sleep_for function
+#include "Drone.h"      // Our custom Drone class
+#include "CityMap.h"    // Our custom CityMap class
 
 int main() {
-    CityMap cityMap(20, 20);  // Create a 20x20 city map
+    // Create a 20x20 city map
+    CityMap cityMap(20, 20);
+
+    // Create a drone and place it on the city map
     Drone drone(cityMap);
 
+    // Main simulation loop
     while (true) {
-        cityMap.updateObjects();  // Move objects randomly
-        drone.move();  // Move the drone
-        drone.detectObjects();  // Detect objects
-        cityMap.display();  // Display the current state
+        // Update the positions of objects (humans and vehicles) on the map
+        cityMap.updateObjects();
 
-        // Print drone position and detected objects
+        // Move the drone to a new position
+        drone.move();
+
+        // Let the drone detect objects in its vicinity
+        drone.detectObjects();
+
+        // Display the current state of the city map
+        cityMap.display();
+
+        // Print the drone's current position and the number of objects it has detected
         std::cout << "Drone position: (" << drone.getX() << ", " << drone.getY() << ")" << std::endl;
         std::cout << "Detected objects: " << drone.getDetectedObjectsCount() << std::endl;
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // Pause for 500ms
+        // Pause the simulation for 500 milliseconds (0.5 seconds)
+        // This slows down the simulation to make it visible to the human eye
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
     return 0;
