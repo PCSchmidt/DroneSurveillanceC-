@@ -1,5 +1,6 @@
 #include "Object.h"
 #include <cstdlib>  // For rand() function
+#include <algorithm> // For std::max and std::min functions
 
 // Constructor: Initialize an Object with given position and type
 Object::Object(int x, int y, ObjectType type) : x(x), y(y), type(type) {}
