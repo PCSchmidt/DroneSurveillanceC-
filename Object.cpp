@@ -1,5 +1,6 @@
 #include "Object.h"
 #include <cstdlib>
+#include <algorithm>
 
 Object::Object(int x, int y, ObjectType type) : x(x), y(y), type(type) {}
 

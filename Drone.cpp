@@ -1,5 +1,6 @@
 #include "Drone.h"
 #include <cstdlib>
+#include <algorithm>
 
 Drone::Drone(CityMap& map) : x(0), y(0), detectedObjects(0), cityMap(map) {}
 

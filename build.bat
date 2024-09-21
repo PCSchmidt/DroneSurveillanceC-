@@ -1,7 +1,7 @@
 @echo off
-g++ -std=c++17 main.cpp Drone.cpp CityMap.cpp Object.cpp -o DroneSurveillance
+cl /EHsc /std:c++17 main.cpp Drone.cpp CityMap.cpp Object.cpp /Fe:DroneSurveillance.exe
 if %errorlevel% neq 0 (
-    echo Compilation failed. Please make sure you have g++ installed and it's in your system PATH.
+    echo Compilation failed. Please make sure you're running this script from a Developer Command Prompt for VS.
     pause
     exit /b %errorlevel%
 )
